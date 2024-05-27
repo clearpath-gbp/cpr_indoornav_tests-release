@@ -2,6 +2,12 @@
 Changelog for package cpr_indoornav_tests
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+0.3.3 (2024-05-27)
+------------------
+* Use galactic by default
+* Improve support for different IMUs
+* Contributors: Chris Iverach-Brereton
+
 0.3.2 (2023-01-19)
 ------------------
 * Add tests for EKF since it must be enabled for IndoorNav to operate properly

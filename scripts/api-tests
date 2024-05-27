@@ -41,7 +41,7 @@ log_debug() {
 
 if [ -z "$ROS2_DISTRO" ];
 then
-  ROS2_DISTRO="foxy"
+  ROS2_DISTRO="galactic"
 fi
 log_debug "Using ROS2 Distro $ROS2_DISTRO"
 
@@ -133,9 +133,16 @@ if ! [ -z "$(topic_list_sanitized)" ];
 then
   ROBOT_TOPICS_RESULT=${PASS}
 fi
+if [ -z "$INDOORNAV_IMU_GX5" ] || [ "$INDOORNAV_IMU_GX5" = "0" ];
+then
+  IMU_TOPIC="/$HOSTNAME_ROS_SANITIZED/um7/imu/data"
+else
+  IMU_TOPIC="/$HOSTNAME_ROS_SANITIZED/gx5/imu/data"
+fi
+
 FRONT_SCAN_RESULT=$(check_topic /$HOSTNAME_ROS_SANITIZED/front/scan)
 REAR_SCAN_RESULT=$(check_topic /$HOSTNAME_ROS_SANITIZED/rear/scan)
-IMU_RESULT=$(check_topic /$HOSTNAME_ROS_SANITIZED/gx5/imu/data)
+IMU_RESULT=$(check_topic "$IMU_TOPIC")
 WIRELESS_RESULT=$(check_topic /$HOSTNAME_ROS_SANITIZED/wireless/connected 5)
 BMS_RESULT=$(check_topic /$HOSTNAME_ROS_SANITIZED/battery_status 5)
 CMD_VEL_RESULT=${FAIL}
