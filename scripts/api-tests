@@ -53,9 +53,6 @@ export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
 export CYCLONEDDS_URI=file://$(catkin_find cpr_indoornav_base config/cyclone_dds.xml --first-only)
 
 source /opt/ros/${ROS2_DISTRO}/setup.bash
-ROS2_API_VERSION=$(ls -r /opt/clearpath | grep -E "^ros2-api-[0-9]+\.[0-9]+\.[0-9]+$" | head -1 | cut -d- -f3)
-source /opt/clearpath/ros2-api-${ROS2_API_VERSION}/local_setup.bash
-log_debug "Using Clearpath ROS2 API v${ROS2_API_VERSION}"
 
 topic_list_sanitized() {
   ros2 topic list | sed '/^\/parameter_events/d' | sed '/^\/rosout/d'

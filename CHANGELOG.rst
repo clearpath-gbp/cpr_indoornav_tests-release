@@ -2,6 +2,11 @@
 Changelog for package cpr_indoornav_tests
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+0.3.4 (2024-06-07)
+------------------
+* Use the new ROS 2 API packages
+* Contributors: Chris Iverach-Brereton
+
 0.3.3 (2024-05-27)
 ------------------
 * Use galactic by default
